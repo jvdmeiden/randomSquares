@@ -1,6 +1,5 @@
 var fieldSize = 0;
 var fieldRoot = [ 0 , 0 ];
-var ratio = window.devicePixelRatio || 1;
 var counter = 0;
 
 function show(id) {
@@ -12,6 +11,14 @@ function hide(id) {
 }
 
 function init(){
+  var maxX=window.innerWidth;
+  var maxY=window.innerHeight;
+  fieldSize = 0.95 * Math.min( maxX , maxY );
+  if ( maxX > maxY ) {
+    fieldRoot = [ (maxX - fieldSize)/2 , fieldSize/40 ]
+  } else {
+    fieldRoot = [ fieldSize/40 , (maxX - fieldSize)/2 ]
+  } 
   submitChoice();
 }
 
@@ -32,16 +39,6 @@ function submitChoice(inp){
   if (counter == 0){
     addSquare(); 
   }
-  if (navigator.platform == "Win32") ratio=Math.max((1/ratio),ratio);
-  if (navigator.platform == "Linux x86_64") ratio=Math.max((1/ratio),ratio);
-  var maxX=window.innerWidth;
-  var maxY=window.innerHeight;
-  fieldSize = 0.95 * Math.min( maxX , maxY );
-  if ( maxX > maxY ) {
-    fieldRoot = [ (maxX - fieldSize)/2 , fieldSize/40 ]
-  } else {
-    fieldRoot = [ fieldSize/40 , (maxX - fieldSize)/2 ]
-  } 
   var svgObject=document.getElementById("svg");
 
   while (svgObject.firstChild) {
@@ -89,7 +86,7 @@ function submitChoice(inp){
 
 function addSquare() {
   var anchor = document.getElementById("squaresList");
-  anchor.insertAdjacentHTML('beforeend','<div id="requestLine'+counter+'" class="grid-squares"><input value="200" type="number" id="sqrNumber'+counter+'" step="1" min="1" max="10000"><input value="80" type="number" id="sqrSize'+counter+'" step="1" min="5" max="1000"><input value="2" type="number" id="sqrWidth'+counter+'" step=".1" min=".1" max="10"><input value="0,0,0" type="text" id="sqrColorRGB'+counter+'"><input value="80" type="number" id="sqrTransparency'+counter+'" step="5" min="5" max="100"><input value="0" type="number" id="sqrRounding'+counter+'" step="1" min="0" max="20"></div>');
+  anchor.insertAdjacentHTML('beforeend','<div id="requestLine'+counter+'" class="grid-squares"><input value="50" type="number" id="sqrNumber'+counter+'" step="1" min="1" max="10000"><input value="80" type="number" id="sqrSize'+counter+'" step="1" min="5" max="1000"><input value="2" type="number" id="sqrWidth'+counter+'" step=".1" min=".1" max="10"><input value="0,0,0" type="text" id="sqrColorRGB'+counter+'"><input value="80" type="number" id="sqrTransparency'+counter+'" step="5" min="5" max="100"><input value="0" type="number" id="sqrRounding'+counter+'" step="1" min="0" max="20"></div>');
   counter++;
 }
 
