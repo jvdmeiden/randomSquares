@@ -25,16 +25,6 @@ function init(){
 function drawRandomSquare(){
 }
 
-// function drawLine(object,x1,y1,x2,y2,w){
-//   newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line'); 
-//   newLine.setAttribute("x1",x1); newLine.setAttribute("y1",y1); 
-//   newLine.setAttribute("x2",x2); newLine.setAttribute("y2",y2); 
-//   newLine.setAttribute("stroke-width",w); 
-//   newLine.setAttribute("stroke","black"); 
-//   newLine.setAttribute("stroke-linecap","round");
-//   object.appendChild(newLine);
-// }
-
 function submitChoice(inp){
   if (counter == 0){
     addSquare(); 
@@ -64,8 +54,9 @@ function submitChoice(inp){
   sqrFieldRoot = [ fieldRoot[0] + maxSize / 2 , fieldRoot[1] + maxSize /2 ];  
  
   for (i = 0; i < counter; i++){
-    sqrFieldSize = fieldSize - (2 * parseInt(document.getElementById("sqrSize"+i).value));
+    sqrFieldSize = fieldSize - (1 * parseInt(document.getElementById("sqrSize"+i).value)+20);
     // sqrFieldRoot = [ fieldRoot[0] + parseInt(document.getElementById("sqrSize"+i).value) / 2 , fieldRoot[1] + parseInt(document.getElementById("sqrSize"+i).value) /2 ];  
+    sqrFieldRoot = [ fieldRoot[0] + 10, fieldRoot[1] + 10];  
     for(j = 0; j < parseInt(document.getElementById("sqrNumber"+i).value); j++){
       square = document.createElementNS("http://www.w3.org/2000/svg", 'rect'); 
       square.setAttribute("width",parseInt(document.getElementById("sqrSize"+i).value));
@@ -86,7 +77,7 @@ function submitChoice(inp){
 
 function addSquare() {
   var anchor = document.getElementById("squaresList");
-  anchor.insertAdjacentHTML('beforeend','<div id="requestLine'+counter+'" class="grid-squares"><input value="50" type="number" id="sqrNumber'+counter+'" step="1" min="1" max="10000"><input value="80" type="number" id="sqrSize'+counter+'" step="1" min="5" max="1000"><input value="2" type="number" id="sqrWidth'+counter+'" step=".1" min=".1" max="10"><input value="0,0,0" type="text" id="sqrColorRGB'+counter+'"><input value="80" type="number" id="sqrTransparency'+counter+'" step="5" min="5" max="100"><input value="0" type="number" id="sqrRounding'+counter+'" step="1" min="0" max="20"></div>');
+  anchor.insertAdjacentHTML('beforeend','<div id="requestLine'+counter+'" class="grid-squares"><input value="50" type="number" id="sqrNumber'+counter+'" step="1" min="1" max="10000"><input value="80" type="number" id="sqrSize'+counter+'" step="1" min="5" max="300"><input value="2" type="number" id="sqrWidth'+counter+'" step=".1" min=".1" max="10"><input value="0,0,0" type="text" id="sqrColorRGB'+counter+'"><input value="80" type="number" id="sqrTransparency'+counter+'" step="5" min="5" max="100"><input value="0" type="number" id="sqrRounding'+counter+'" step="1" min="0" max="20"></div>');
   counter++;
 }
 
