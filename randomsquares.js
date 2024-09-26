@@ -55,7 +55,6 @@ function submitChoice(inp){
  
   for (i = 0; i < counter; i++){
     sqrFieldSize = fieldSize - (1 * parseInt(document.getElementById("sqrSize"+i).value)+20);
-    // sqrFieldRoot = [ fieldRoot[0] + parseInt(document.getElementById("sqrSize"+i).value) / 2 , fieldRoot[1] + parseInt(document.getElementById("sqrSize"+i).value) /2 ];  
     sqrFieldRoot = [ fieldRoot[0] + 10, fieldRoot[1] + 10];  
     for(j = 0; j < parseInt(document.getElementById("sqrNumber"+i).value); j++){
       square = document.createElementNS("http://www.w3.org/2000/svg", 'rect'); 
