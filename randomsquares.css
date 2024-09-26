@@ -1,0 +1,39 @@
+body {
+ background-color: #E0E0E0;
+  /* Center the form on the page */
+  text-align: center;
+  margin:0; 
+  padding:0; 
+  overflow:hidden
+}
+
+form {
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+svg { position:fixed; top:0; left:0; height:100%; width:100%; z-index: -1 }
+
+.myForm {
+
+ gap: 8px;
+ width: 800px;
+ max-width: 90%;
+ margin-left: 2%;
+ margin-top: 2%;
+ background-color: #E0E0E0;
+ text-align: left;
+ padding: 10px;
+ border-style: solid;
+ border-width: 8px;
+ border-color: grey;
+ border-radius: 16px;
+}
+
+.grid-squares {
+  display: grid;
+  grid-template-columns: 400px auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
+}
+

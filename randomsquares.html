@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Author: Jan van der Meiden                                           -->
+<!-- jvdmeiden@gmail.com                                                  -->
+<!-- Version: 20240911.00                                                 -->
+<!-- Copyright (c) 2024 Jan van der Meiden.                               -->
+<!-- Copying and distribution of this file, with or without modification, -->
+<!-- are permitted in any medium without royalty provided the copyright   -->
+<!-- notice and this notice are preserved.                                -->
+<!--                                                                      -->
+<!-- Random squared in svg                                                -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Random squares</title>
+    <link href="randomsquares.css" rel="stylesheet" type="text/css">
+    <script src="https://jvdm.info/scripts/jmid.js" defer=""></script>
+    <script src="randomsquares.js"></script>
+  </head>
+  <body onLoad="init()">
+    <div class="menu" onMouseOver="show('myConsole')" onMouseOut="hide('myConsole')">
+      <div id="myConsole">
+        <form name="choice" class="myForm" form onsubmit="return submitChoice();">
+          <div class="grid-squares">
+            <div class="header">Number<br>of squares</div>
+            <div class="header">Size</div>
+            <div class="header">Stroke<br>width</div>
+            <div class="header">Color<br><small>r,g,b<br>0-255,0-255,0-255</small></div>
+            <div class="header">Opacity<br>percentage</div>
+            <div class="header">Rounding<br>radius</div>
+          </div>
+          <div id="squaresList">
+          </div>
+          <div>
+            <br><br>
+            <div>
+              <button type="button" onclick="addSquare();" style="cursor: pointer;float:left">Add Layer of Squares</button>
+              <button type="button" onclick="removeSquare();" style="cursor: pointer;float:right">Remove Layer of Squares</button>
+               <br><br>
+              <button value="submit" type="submit">Submit</button>
+            </div>
+          </div>
+         <small>
+          <br>Move cursor or click on the lower half of the screen to hide the menu
+          <br>Move cursor or click on the upper half of the screen to show the menu
+          <br><a href="https://collections.vam.ac.uk/item/O192911/quadrate-squares-print-franke-herbert-w/" target="_blank">Inspired by Herbert Franke</a><br>
+         </small>
+        </form>
+      </div>
+    </div>
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg" style="background: white"></svg>
+  </body>
+</html>
+
